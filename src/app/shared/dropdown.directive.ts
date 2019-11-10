@@ -7,8 +7,14 @@ export class DropdownDirective {
 
   @HostBinding('class.open') dropdownOpen = false;
 
-  @HostListener('click') toggleOpen() {
-    this.dropdownOpen = !this.dropdownOpen;
+  constructor(private elRef: ElementRef) {}
+
+  // @HostListener('click') toggleOpen() {
+  //   this.dropdownOpen = !this.dropdownOpen;
+  // }
+
+  @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
+    this.dropdownOpen = this.elRef.nativeElement.contains(event.target) ? !this.dropdownOpen : false;
   }
 
 }
