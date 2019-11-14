@@ -17,7 +17,7 @@ export class RecipeService {
   ];
 
   getRecipes() {
-    return this.recipes.slice();  // slice() makes sure we do retrurn a copy of the array instead of the reference.
+    return this.recipes.slice();  // slice() makes sure we do return a copy of the array instead of the reference.
   }
 
 }
